@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Example website</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Example website" />
+		<meta name="keywords" content="example, website" />
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+	</head>
+	<body>
+
+		<div id="header-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						
+						<header id="header">
+							<h1><a href="#" id="logo">%%GLOBAL TITLE%%</a></h1>
+							<nav id="nav">
+							<!--Accueil-->
+								<a href="%%LINK FOR MAIN MENU ITEM 1%%" %%META FOR MAIN MENU ITEM 1%%>%%MAIN MENU ITEM 1%%</a>
+							<!--Observer machine-->
+								<a href="%%LINK FOR MAIN MENU ITEM 2%%" %%META FOR MAIN MENU ITEM 2%%>%%MAIN MENU ITEM 2%%</a>
+							<!--Contact-->
+								<a href="%%LINK FOR MAIN MENU ITEM 3%%" %%META FOR MAIN MENU ITEM 3%%>%%MAIN MENU ITEM 3%%</a>
+							</nav>
+						</header>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="main">
+			<div class="container">
+				<div class="row main-row">
+					<div class="8u">
+						
+						<section class="left-content">
+							%%@MAIN CONTENT%%
+						</section>
+					
+					</div>
+
+					<div class="4u">
+						<section>
+							<h2>Actions</h2>
+							<ul>
+								<li>
+									<a href="#"> Side link 1</a>
+								</li>
+								<li>
+									<a href="#"> Side link 2</a>
+								</li>
+							</ul>
+						</section>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="footer-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						<section>
+							<p>This website was created to watch my pictures.</p>
+							<footer class="controls">
+								<a href="#" class="button">Contact us !</a>
+							</footer>
+						</section>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="12u">
+						<div id="copyright">
+							%%SITE CREDITS%%
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
