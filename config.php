@@ -39,7 +39,7 @@ define("FUNCTIONS_DIR", FRAMEWORK_DIR . "functions/");
 define("CONTROLLERS_DIR", USER_DIR . "website/");
 define("CLASSES_DIR", FRAMEWORK_DIR . "core/");
 define("HTML_DIR", USER_DIR . "html/");
-
+define("APPLICATION_DIR", USER_DIR . "application/");
 
 
 
