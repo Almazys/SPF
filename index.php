@@ -4,9 +4,9 @@
  * TODO : clean statics
  * TODO : give the choice of OOP or not
  * TODO : update readme
-TODO : erase the @MAIN CONTENT if not used
-TODO : set replaceAllContent protected (and clean all others ?)
-TODO : create user space to put other controllers
+ * 
+ * TODO : erase the @MAIN CONTENT if not used
+ * TODO : set replaceAllContent protected (and clean all others ?)
  */
 
 require("init.php");

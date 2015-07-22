@@ -32,10 +32,13 @@ $config['security']['allowed_characters']['inputs'] = "/[^A-Za-z0-9]/";
  * Path definitions
  */
 define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . DIR_OFFSET);
-define("FUNCTIONS_DIR", ROOT_DIR . "functions/");
-define("CONTROLLERS_DIR", ROOT_DIR . "website/");
-define("CLASSES_DIR", ROOT_DIR . "core/");
-define("HTML_DIR", ROOT_DIR . "html/");
+define("FRAMEWORK_DIR", ROOT_DIR . "framework/");
+define("USER_DIR", ROOT_DIR . "user/");
+
+define("FUNCTIONS_DIR", FRAMEWORK_DIR . "functions/");
+define("CONTROLLERS_DIR", USER_DIR . "website/");
+define("CLASSES_DIR", FRAMEWORK_DIR . "core/");
+define("HTML_DIR", USER_DIR . "html/");
 
 
 
