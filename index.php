@@ -7,6 +7,7 @@
  * 
  * TODO : erase the @MAIN CONTENT if not used
  * TODO : set replaceAllContent protected (and clean all others ?)
+ * TODO : add IP who's not online
  */
 
 require("init.php");
