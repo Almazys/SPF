@@ -14,8 +14,8 @@ foreach(glob(CLASSES_DIR . "*.class.php") as $filename)
 	require_once($filename);
 foreach(glob(FUNCTIONS_DIR . "*.php") as $filename)
 	require_once($filename);
-foreach(glob(APPLICATION_DIR . "*.php") as $filename)
-	require_once($filename);
+
+set_include_path(APPLICATION_DIR);
 
 /**
  * If site is set as offline in config.php, display an error page
