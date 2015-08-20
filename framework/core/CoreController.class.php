@@ -15,8 +15,8 @@ abstract class CoreController {
 	protected $view = null; //contains the view
 	
 	/**
-	 * [containing the database model]
-	 * @var [Model]
+	 * [containing the database]
+	 * @var [Database]
 	 */
 	protected $db = null;
 
