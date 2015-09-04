@@ -38,7 +38,7 @@ $config['bdd']['hostname'] = "localhost"; // address of database
 $config['bdd']['database'] = "example"; // name of db
 $config['bdd']['username'] = "root"; // user to access db ...
 $config['bdd']['password'] = ""; // ... and its associated password
-
+$config['bdd']['encoding'] = "UTF8"; // charset encoding
 
 /**
  * Options
