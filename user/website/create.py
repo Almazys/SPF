@@ -12,7 +12,7 @@ destFile = sys.argv[1].split('/')[-1].capitalize()
 destFile = re.sub('.class.php', '', destFile)
 destFile = re.sub('.php', '', destFile)
 destFile = destFile + ".class.php"
-destPath = os.getcwd() + '/'.join(sys.argv[1].split('/')[:-1]).lower() + '/'
+destPath = os.getcwd() + '/' +  '/'.join(sys.argv[1].split('/')[:-1]).lower() + '/'
 
 print("[*] Checking folders...")
 if not os.path.exists(destPath):
