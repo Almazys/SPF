@@ -4,16 +4,21 @@ import sys
 import re
 
 # check if an argument were given 
-if len(sys.argv) <2:
-	print("You need to specify controller's path/to/controller")
+if len(sys.argv) < 2:
+	print("Usage: " + sys.argv[0] + " path/to/controller [author]")
 	sys.exit()
+
+if len(sys.argv) == 3:
+	author = sys.argv[2]
+else:
+	author = ""
 
 destFile = sys.argv[1].split('/')[-1].capitalize()
 destFile = re.sub('.class.php', '', destFile)
 destFile = re.sub('.php', '', destFile)
 if destFile:
 	destFile = destFile + ".class.php"
-else
+else:
 	destFile = "Index.class.php"
 
 destPath = os.getcwd() + '/'
@@ -41,8 +46,8 @@ try:
 '''<?php
 
 /**
- * Class generated through ''' + __file__ +  '''
- * @author: Almazys
+ * Class generated through create.py
+ * @author: ''' + author + '''
  */
 
 class ''' + destFile.replace(".class.php", "") + ''' extends WebsiteController {
