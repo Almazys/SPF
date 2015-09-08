@@ -7,7 +7,6 @@
  * 
  * TODO : set replaceAllContent protected (and clean all others ?)
  * TODO : add IP who's not online
- * TODO : move WebsiteController to user/application
  */
 
 require("init.php");
