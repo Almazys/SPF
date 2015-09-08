@@ -11,7 +11,11 @@ if len(sys.argv) <2:
 destFile = sys.argv[1].split('/')[-1].capitalize()
 destFile = re.sub('.class.php', '', destFile)
 destFile = re.sub('.php', '', destFile)
-destFile = destFile + ".class.php"
+if destFile:
+	destFile = destFile + ".class.php"
+else
+	destFile = "Index.class.php"
+
 destPath = os.getcwd() + '/'
 if len(sys.argv[1].split('/'))>1:
 	destPath = destPath + '/'.join(sys.argv[1].split('/')[:-1]).lower() + '/'
