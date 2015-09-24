@@ -33,7 +33,7 @@ $config['log']['file'] = "/opt/lampp/temp/website.log"; // absolute path to logf
 /**
  * Database credentials
  */
-$config['bdd']['driver'] = "mysql"; // can be mysql, pgsql, or sqlite for example.
+$config['bdd']['driver'] = "mysql"; // poo drivers installed with PHP 
 $config['bdd']['hostname'] = "localhost"; // address of database
 $config['bdd']['database'] = "example"; // name of db
 $config['bdd']['username'] = "root"; // user to access db ...
