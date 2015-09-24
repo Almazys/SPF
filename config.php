@@ -31,7 +31,6 @@ $config['security']['allowed_characters']['inputs'] = "/[^A-Za-z0-9]/";
 /**
  * Path definitions
  */
-define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . DIR_OFFSET);
 define("FRAMEWORK_DIR", ROOT_DIR . "framework/");
 define("USER_DIR", ROOT_DIR . "user/");
 

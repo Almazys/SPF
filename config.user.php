@@ -56,7 +56,7 @@ $config['security']['displayExplicitErrors'] = true; // If false, display generi
 /**
  * Paths definitions
  */
-define("DIR_OFFSET", "/"); // If your website is under a subfolder in DOCUMENT_ROOT, specify it here. Else, just put '/'.
+define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . '/');
 
 
 /**
