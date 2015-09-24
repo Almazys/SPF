@@ -85,7 +85,8 @@ abstract class CoreController {
 					$unit = 'ms';
 					$time = round($time * 1000, 5);
 				}
-				echo 'Number of SQL requests : ' . $this->db->getStats() . ' - Page generated in ' . $time . $unit . '<br />';
+				if($this->db !== null)
+					echo 'Number of SQL requests : ' . $this->db->getStats() . ' - Page generated in ' . $time . $unit . '<br />';
 			}
 			echo '</p></div>';
 		}
