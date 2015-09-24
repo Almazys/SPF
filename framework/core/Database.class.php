@@ -17,8 +17,10 @@ class Database extends PDO {
         try { // Should be caught through Site.class.php, but still... just in case
             parent::__construct($dsn, $GLOBALS['config']['bdd']['username'], $GLOBALS['config']['bdd']['password']);
             parent::setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->query("SET NAMES " . $GLOBALS['config']['bdd']['encoding']);
-            self::$count = 0; # SET NAMES doesn't not count
+            if($GLOBALS['config']['bdd']['driver'] == "mysql") {
+                $this->query("SET NAMES " . $GLOBALS['config']['bdd']['encoding']);
+                self::$count = 0; # SET NAMES doesn't not count
+            }
         } catch (PDOException $e) {
             Site::error(Site::app_error, "Database error", 
                 ($GLOBALS['config']['security']['displayExplicitErrors']===true ? $e->getMessage() : $GLOBALS['config']['errors']['framework']['503'])
