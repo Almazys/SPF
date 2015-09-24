@@ -21,6 +21,12 @@ abstract class CoreController {
 	protected $db = null;
 
 	/**
+	 * [containing automaticaly loaded classes
+	 * @var [array]
+	 */
+	protected $classes = array();
+
+	/**
 	 * Specify a main work function for childs
 	 */
 	abstract function work();
@@ -35,6 +41,13 @@ abstract class CoreController {
 		//TODO: move check to Database.class.php
 		if(isset($GLOBALS['config']['bdd']['hostname']) && !empty($GLOBALS['config']['bdd']['hostname']))
 			$this->db = new Database();
+
+		foreach ($GLOBALS['config']['PHP']['includes'] as $key => $value) {	
+			require_once($key);
+			if(!empty($value))
+				foreach ($value as $class)
+					$this->classes[$key] = new $class();
+		}
 
 		/**
 		 * start capturating controller's output

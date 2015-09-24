@@ -65,6 +65,20 @@ define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . '/');
 $config['HTML']['template']="example_template"; // name of HTML template
 
 
+/*****************************
+ * PHP ressources									*
+ * files that are loaded or executed				*
+ * automaticaly when a page is 						*
+ * called 											*
+ * ex :												*
+ * myclass.class.php => ['Myclass', 'Myotherclass']	*
+ * myfile.php => []									*
+ *****************************/
+$config['PHP']['includes'] = array(
+	'user-stuff.php' => array(),
+	'WebsiteController.class.php' => array("WebsiteController")
+	);
+
 
 /*****************************
  * (common HTML ressources)  *
