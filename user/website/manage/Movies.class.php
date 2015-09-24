@@ -1,6 +1,6 @@
 <?php
 
-class Movies extends WebsiteController {
+class Movies extends CoreController {
 
 	public function __construct() {
 		parent::__construct();

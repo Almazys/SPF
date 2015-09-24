@@ -16,7 +16,6 @@ foreach(glob(FUNCTIONS_DIR . "*.php") as $filename)
 	require_once($filename);
 
 set_include_path(APPLICATION_DIR);
-include_once("WebsiteController.class.php");
 
 /**
  * If site is set as offline in config.php, display an error page

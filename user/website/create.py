@@ -50,7 +50,7 @@ try:
  * @author: ''' + author + '''
  */
 
-class ''' + destFile.replace(".class.php", "") + ''' extends WebsiteController {
+class ''' + destFile.replace(".class.php", "") + ''' extends CoreController {
 
 	public function __construct() {
 		parent::__construct();

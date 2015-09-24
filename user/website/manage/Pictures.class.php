@@ -1,6 +1,6 @@
 <?php
 
-class Pictures extends WebsiteController {
+class Pictures extends CoreController {
 
 	public function __construct() {
 		parent::__construct();

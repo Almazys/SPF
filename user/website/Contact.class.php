@@ -1,6 +1,6 @@
 <?php
 
-class Contact extends WebsiteController {
+class Contact extends CoreController {
 
 	public function __construct() {
 		parent::__construct();
