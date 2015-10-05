@@ -106,7 +106,7 @@ abstract class CoreController {
 	}
 
 	/**
-	 * [Returns instance of class is exists or NULL]
+	 * [Returns instance of class if exists or NULL]
 	 * @return [object] [Controller or NULL]
 	 */
 	public static function getInstance() {
