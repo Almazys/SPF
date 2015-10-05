@@ -8,6 +8,12 @@
 class View {
 	
 	/**
+	 * [Contains the locale file to load]
+	 * @var string
+	 */
+	protected $locale = "";
+
+	/**
 	 * [contains the content of the page to display]
 	 * @var [string]
 	 */
@@ -23,26 +29,33 @@ class View {
 
 	/**
 	 * [Set a template from it's file name (without .template)]
-	 * @param [string] $name [filename of template without extention]
+	 * @param [string] $_name [filename of template without extention]
 	 */
-	public function setTemplate($name) {
-		$this->template = $this->template = HTML_DIR . $GLOBALS['config']['HTML']['template'] . "/" . $name . ".template";
+	public function setTemplate($_name) {
+		$this->template = HTML_DIR . $GLOBALS['config']['HTML']['template'] . "/" . $_name . ".template";
 	}
 
+	/**
+	 * [Set a locale file to load]
+	 * @param [string] $_locale [filename of locale without extention]
+	 */
+	public function setLocale($_locale) {
+		$this->locale = $_locale;
+	}
 
 	/**
 	 * [Sets template's specific strings from associated .locale file]
 	 * @param [type] $pattern     [description]
 	 * This input is HTML free ('<p>Hello</p>' will be 'Hello')
 	 */
-	protected function setLocaleContent($locale_file) {
-		if(!is_readable($locale_file)) {
-			Debug::write("associated template locale can't be read !",0);
+	public function setLocaleContent($_locale_file) { 
+		if(!is_readable(HTML_DIR  . $_locale_file . ".locale") || !file_exists(HTML_DIR  . $_locale_file . ".locale")) {
+			Debug::write("Requested locale file " . $_locale_file ." can't be read !",0);
 			return;
 		}
-		$f = @fopen($locale_file, 'r');
+		$f = @fopen(HTML_DIR  . $_locale_file . ".locale", 'r');
 		if(empty($f))
-			Debug::write("associated template locale can't be loaded !",0);
+			Debug::write("Requested locale file " . $_locale_file ." can't be loaded !",0);
 
 
 		//Search in locale file if there are strings to replace
@@ -67,7 +80,6 @@ class View {
 
         	$parsed_line = explode(';', $buffer);
         	$key=array_shift($parsed_line);
-
         	$this->setContent("##" . $key . "##", preg_replace("#^" . $key . ";#", "", $buffer));
     	}
     	fclose($f);
@@ -153,9 +165,9 @@ class View {
 
 		$this->replaceDefaultUserContent();	
 		
-
-		if(file_exists(HTML_DIR  . "global.locale"))
-			$this->setLocaleContent(HTML_DIR  . "global.locale");
+		$this->setLocaleContent("global");
+		if($this->locale)
+			$this->setLocaleContent($this->locale);
 
 		$this->replaceAllContent();
 

@@ -19,7 +19,7 @@ $config['website']['display_stats'] = true; // Displays stats (number of SQL req
 /**
  * DEBUG
  */
-$config['DEBUG']['enabled'] = false; // Enables the debug mode. Breaks the DOM by adding usefull information in bottom of all pages. 
+$config['DEBUG']['enabled'] = true; // Enables the debug mode. Breaks the DOM by adding usefull information in bottom of all pages. 
 $config['DEBUG']['verbosity'] = 2; //0 (very little verbose), 1(moderate) or 2(big)
 $config['DEBUG']['out'] = "both"; // can be 'stdout', 'file', or 'both'
 $config['DEBUG']['outfile'] = "/opt/lampp/temp/website.debug"; // absolute path to file (used if out is 'file' or 'both')
@@ -65,7 +65,7 @@ define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . '/');
 $config['HTML']['template']="example_template"; // name of HTML template
 
 
-/*****************************
+/****************************************************
  * PHP ressources									*
  * files that are loaded or executed				*
  * automaticaly when a page is 						*
@@ -73,7 +73,9 @@ $config['HTML']['template']="example_template"; // name of HTML template
  * ex :												*
  * myclass.class.php => ['Myclass', 'Myotherclass']	*
  * myfile.php => []									*
- *****************************/
+ * 													*
+ * Objects are in CoreController->classes			*
+ ***************************************************/
 $config['PHP']['includes'] = array(
 	'user-stuff.php' => array(),
 	'WebsiteController.class.php' => array("WebsiteController")
