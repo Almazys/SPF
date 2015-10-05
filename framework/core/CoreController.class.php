@@ -29,7 +29,7 @@ abstract class CoreController {
 	/**
 	 * Specify a main work function for childs
 	 */
-	abstract function work();
+	abstract public function work();
 
 
 	public function __construct() {
