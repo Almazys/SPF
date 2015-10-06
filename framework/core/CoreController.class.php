@@ -12,13 +12,13 @@ abstract class CoreController {
 	 * [containing the view]
 	 * @var [View]
 	 */
-	protected $view = null; //contains the view
+	protected static $view = null; //contains the view
 	
 	/**
 	 * [containing the database]
 	 * @var [Database]
 	 */
-	protected $db = null;
+	protected static $db = null;
 
 	/**
 	 * [containing automaticaly loaded classes
@@ -36,11 +36,11 @@ abstract class CoreController {
 		Debug::write("Building controller " . get_class($this) . " ...", 0);
 		self::$instance = $this;
 		
-		$this->view = new View();
+		self::$view = new View();
 
 		//TODO: move check to Database.class.php
 		if(isset($GLOBALS['config']['bdd']['hostname']) && !empty($GLOBALS['config']['bdd']['hostname']))
-			$this->db = new Database();
+			self::$db = new Database();
 
 		foreach ($GLOBALS['config']['PHP']['includes'] as $key => $value) {	
 			require_once($key);
@@ -76,9 +76,9 @@ abstract class CoreController {
 		if(strlen($output)===0)
 			Debug::write("No output from controller was detected. No additionnal action will be done on HTML content", 0);
 		else
-			$this->view->setContent("%%@MAIN CONTENT%%", $output);
+			self::$view->setContent("%%@MAIN CONTENT%%", $output);
 		
-		$this->view->display();
+		self::$view->display();
 
 		/**
 		 * Breaking the DOM for credits or stats
@@ -98,8 +98,8 @@ abstract class CoreController {
 					$unit = 'ms';
 					$time = round($time * 1000, 5);
 				}
-				if($this->db !== null)
-					echo 'Number of SQL requests : ' . $this->db->getStats() . ' - Page generated in ' . $time . $unit . '<br />';
+				if(self::$db !== null)
+					echo 'Number of SQL requests : ' . self::$db->getStats() . ' - Page generated in ' . $time . $unit . '<br />';
 			}
 			echo '</p></div>';
 		}
@@ -112,6 +112,22 @@ abstract class CoreController {
 	public static function getInstance() {
 		return self::$instance;
 	}
+
+	/**
+	 * [Returns current instance of view if exists or NULL]
+	 * @return [object] [view or NULL]
+	 */
+	public static function getView() {
+		return self::$view;
+	}
+
+	/**
+	 * [Returns instance of database if exists or NULL]
+	 * @return [object] [DB or NULL]
+	 */
+	public static function getDB() {
+		return self::$db;
+	}	
 	
 }
 
