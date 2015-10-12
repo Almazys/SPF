@@ -9,8 +9,8 @@ class Index extends CoreController {
 	}
 
 	public function work() {
-		// $this->view->setTemplate("no_side");
-		// $this->view->setLocale("en");
+		// self::$view->setTemplate("no_side");
+		// self::$view->setLocale("en");
 
 		echo '<h1>Welcome on this example website</h1>
 		<p>Here, you\'ll be able to do pretty much nothing, just stare at empty pages.<br />';
