@@ -59,6 +59,8 @@ class ''' + destFile.replace(".class.php", "") + ''' extends CoreController {
 
 	public function work() {
 		# Do stuff here ...
+		# self::$view->setTemplate("specific_template");
+		# self::$view->setLocale("en");
 	}
 
 }
