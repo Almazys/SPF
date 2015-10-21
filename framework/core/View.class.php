@@ -93,6 +93,8 @@ class View {
 	 * if array, see README for more informations
 	 */
 	protected function replaceDefaultUserContent() {
+		if(!isset($GLOBALS['config']['HTML']['content']) || empty($GLOBALS['config']['HTML']['content']))
+			return;
 		foreach($GLOBALS['config']['HTML']['content'] as $key => $value) {
 			if(is_array($value)) {
 				foreach($value as $subKey => $subValue) {
