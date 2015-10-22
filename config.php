@@ -17,8 +17,8 @@ include("config.user.php");
 /**
  * Version numbers
  */
-$config['framework']['version'] = 1.27;
-$config['framework']['branch'] = "RC";
+$config['framework']['version'] = 0.27;
+$config['framework']['branch'] = "beta";
 $config['framework']['PHP_version_required'] = "5.3";
 
 /**
