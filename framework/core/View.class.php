@@ -136,6 +136,8 @@ class View {
 	 * TODO : alert with debug when a pattern isn't found 
 	 */
 	public function replaceAllContent() {
+		if(!isset($this->items) || empty($this->items))
+			return;
 		foreach ($this->items as $pattern => $replacement) {
 			$this->content = preg_replace("/" . $pattern . "/", $replacement, $this->content);
 			unset($this->items[$pattern]);
