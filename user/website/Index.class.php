@@ -1,6 +1,6 @@
 <?php
 
-class Index extends CoreController {
+class Index extends WebsiteController {
 
 	public function __construct() {
 		parent::__construct();
@@ -9,8 +9,8 @@ class Index extends CoreController {
 	}
 
 	public function work() {
-		// self::$view->setTemplate("no_side");
-		// self::$view->setLocale("en");
+		// $this->view->setTemplate("no_side");
+		// $this->view->setLocale("en");
 
 		echo '<h1>Welcome on this example website</h1>
 		<p>Here, you\'ll be able to do pretty much nothing, just stare at empty pages.<br />';

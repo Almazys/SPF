@@ -30,6 +30,7 @@ class Site {
 		Debug::write("Building website ...", 1);
 		$this->sanitizeInputs();
 		$this->parseURL();
+		$this->autoLoad();
 		$this->loadController();
 	}
 
@@ -76,6 +77,19 @@ class Site {
 	protected function parseURL() {
 		$request = explode("?", preg_replace('/^\//', '', self::$request));
 		self::$sections = array_filter(explode("/", array_shift($request)));
+	}
+
+	/**
+	 * [auto-includes files located in APPLICATION_DIR]
+	 * @return [type] [description]
+	 */
+	protected function autoLoad() {
+		foreach ($GLOBALS['config']['PHP']['includes'] as $key)	{
+			if(file_exists(APPLICATION_DIR . $key))
+				include_once(APPLICATION_DIR . $key);
+			else
+				Debug::write("Autoload of file " . APPLICATION_DIR . $key . " failed.",0);
+		}
 	}
 
 	/**

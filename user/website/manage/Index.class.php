@@ -1,6 +1,6 @@
 <?php
 
-class Index extends CoreController {
+class Index extends WebsiteController {
 
 	public function __construct() {
 		parent::__construct();

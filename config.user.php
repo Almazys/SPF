@@ -71,14 +71,13 @@ $config['HTML']['template']="example_template"; // name of HTML template
  * automaticaly when a page is 						*
  * called 											*
  * ex :												*
- * myclass.class.php => ['Myclass', 'Myotherclass']	*
- * myfile.php => []									*
+ * myclass.class.php,								*
+ * myfile.php										*
  * 													*
- * Objects are in CoreController->classes			*
  ***************************************************/
 $config['PHP']['includes'] = array(
-	'user-stuff.php' => array(),
-	'WebsiteController.class.php' => array("WebsiteController")
+	'user-stuff.php',
+	'WebsiteController.class.php',
 	);
 
 
