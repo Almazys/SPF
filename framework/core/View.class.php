@@ -53,6 +53,7 @@ class View {
 			Debug::write("Requested locale file " . $_locale_file ." can't be read !",0);
 			return;
 		}
+		Debug::write('Opening locale file ' . HTML_DIR  . $_locale_file . '.locale', 1);
 		$f = @fopen(HTML_DIR  . $_locale_file . ".locale", 'r');
 		if(empty($f))
 			Debug::write("Requested locale file " . $_locale_file ." can't be loaded !",0);
