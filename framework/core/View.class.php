@@ -164,8 +164,11 @@ class View {
 			$this->template = HTML_DIR . $GLOBALS['config']['HTML']['template'] . "/" . $GLOBALS['config']['HTML']['template'] . ".template";
 		}
 
-		if(is_readable($this->template))
-			$this->content = file_get_contents($this->template);
+		if(is_readable($this->template)) {
+			ob_start();
+			include($this->template);
+			$this->content = ob_get_clean();
+		}
 		else
 			Site::error(Site::app_error, "12", $GLOBALS['config']['errors']['framework']['12']);
 
