@@ -59,12 +59,12 @@ class View {
 			Debug::write("Requested locale file " . $_locale_file ." can't be loaded !",0);
 
 
-		//Search in locale file if there are strings to replace
+		// Search in locale file if there are strings to replace
 		while (!feof($f)) {
         	$buffer = fgetss($f, 4096);
 
-        	//End of file
-        	if(strlen($buffer)===0)
+        	// Empty line
+        	if (preg_match("/^$/", $buffer) > 0)
         		continue;
 
         	// Comments on locale file
@@ -73,8 +73,12 @@ class View {
         	elseif (preg_match("/^#/", $buffer) > 0)
         		continue;
         	
+        	// End of file
+        	if(strlen($buffer)===0)
+        		continue;
+
         	//Invalid line
-        	elseif(count(explode(";", $buffer))<2) {
+        	if(count(explode(";", $buffer))<2) {
         		Debug::write("Invalid line '" . $buffer . "' has been ignored. No ';' found", 1);
         		continue;
         	}
