@@ -34,7 +34,8 @@ if (version_compare(phpversion(), $GLOBALS['config']['framework']['PHP_version_r
 /**
  * Managing Debug
  */
-Debug::build();
+if(isset($GLOBALS['config']['DEBUG']['enabled']) && $GLOBALS['config']['DEBUG']['enabled'] == true)
+	Debug::build();
 
 
 

@@ -15,9 +15,22 @@ include("config.user.php");
 
 
 /**
+ * If config.user.php is missing, apply the following defaults 
+ */
+
+if(!isset($config['website']['is_online'])) $config['website']['is_online'] = true;
+if(!isset($config['website']['display_credits'])) $config['website']['display_credits'] = false;
+if(!isset($config['website']['display_stats'])) $config['website']['display_stats'] = false;
+if(!isset($config['DEBUG']['enabled'])) $config['DEBUG']['enabled'] = false; 
+if(!isset($config['controller']['loadLastKnownController'])) $config['controller']['loadLastKnownController'] = true;
+if(!isset($config['security']['skipLocalChecks'])) $config['security']['skipLocalChecks'] = false;
+if(!isset($config['security']['displayExplicitErrors'])) $config['security']['displayExplicitErrors'] = false;
+if(!defined('ROOT_DIR')) define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . '/');
+
+/**
  * Version numbers
  */
-$config['framework']['version'] = 0.30;
+$config['framework']['version'] = 0.31;
 $config['framework']['branch'] = "beta";
 $config['framework']['PHP_version_required'] = "5.3";
 

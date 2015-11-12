@@ -84,6 +84,8 @@ class Site {
 	 * @return [type] [description]
 	 */
 	protected function autoLoad() {
+		if(!isset($GLOBALS['config']['PHP']['includes']) || !is_array($GLOBALS['config']['PHP']['includes']))
+			return;
 		foreach ($GLOBALS['config']['PHP']['includes'] as $key)	{
 			if(file_exists(APPLICATION_DIR . $key))
 				include_once(APPLICATION_DIR . $key);
@@ -277,6 +279,9 @@ class Site {
 
 
 	public static function log($_msg) {
+		if(!isset($GLOBALS['config']['log']['file']) || !file_exists($GLOBALS['config']['log']['file']))
+			return;
+
 		$file = fopen($GLOBALS['config']['log']['file'], 'a');
 
 		if(!$file) {
