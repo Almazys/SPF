@@ -181,14 +181,14 @@ class Site {
 				try {
 					$controller = new self::$controller_name_to_load(); // FIXME: PHP<5.3?		
 				} catch (PDOException $e) {
-					Controller::stopCapturing();
+					CoreController::stopCapturing();
 					Site::error(Site::app_error, "Database error", 
                 		($GLOBALS['config']['security']['displayExplicitErrors']===true ? $e->getMessage() : $GLOBALS['config']['errors']['framework']['503']));
 					exit;
 
 				/* TODO : do not catch general exceptions ? */
 				} catch (Exception $e) {
-					Controller::stopCapturing();
+					CoreController::stopCapturing();
 					Site::error(Site::site_error, "Exception thrown in loaded controller", 
 						($GLOBALS['config']['security']['displayExplicitErrors']===true ? $e->getMessage() : $GLOBALS['config']['errors']['framework']['502']));
 					exit;
