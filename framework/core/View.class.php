@@ -144,6 +144,7 @@ class View {
 		if(!isset($this->items) || empty($this->items))
 			return;
 		foreach ($this->items as $pattern => $replacement) {
+			Debug::write("Replacing '$pattern' by '$replacement'",2);
 			$this->content = preg_replace("/" . $pattern . "/", $replacement, $this->content);
 			unset($this->items[$pattern]);
 		}
