@@ -203,7 +203,8 @@ class View {
 			$msg = preg_replace("/%/", "", $msg);
 			Debug::write("One or several HTML field hasn't been replaced : " . htmlentities($msg), 0);
 
-			$this->replaceAllContent(); //delete unreplaced patterns from HTML template
+			if(!isset($GLOBALS['config']['HTML']['view']['suppressUnmatchedPatterns']) || $GLOBALS['config']['HTML']['view']['suppressUnmatchedPatterns'] === true)
+				$this->replaceAllContent(); //delete unreplaced patterns from HTML template
 
 		}
 

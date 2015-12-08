@@ -45,6 +45,7 @@ $config['bdd']['encoding'] = "UTF8"; // charset encoding
  */
 $config['controller']['loadLastKnownController'] = true; //if true, calling /section/blog/2015-01-23/ when only blog exists, will load blog.class.php
 $config['security']['skipLocalChecks'] = true; // False : more security
+$config['HTML']['view']['suppressUnmatchedPatterns'] = true; //deletes tags like %%MYTAG%% or ##MYTAG## if the pattern hasn't been replaced in the .template
 
 
 /**
