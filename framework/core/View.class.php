@@ -46,7 +46,6 @@ class View {
 	/**
 	 * [Sets template's specific strings from associated .locale file]
 	 * @param [type] $pattern     [description]
-	 * This input is HTML free ('<p>Hello</p>' will be 'Hello')
 	 */
 	public function setLocaleContent($_locale_file) { 
 		if(!is_readable(HTML_DIR  . $_locale_file . ".locale") || !file_exists(HTML_DIR  . $_locale_file . ".locale")) {
@@ -61,7 +60,7 @@ class View {
 
 		// Search in locale file if there are strings to replace
 		while (!feof($f)) {
-        	$buffer = fgetss($f, 4096);
+        	$buffer = fgets($f, 4096);
 
         	// Empty line
         	if (preg_match("/^$/", $buffer) > 0)
