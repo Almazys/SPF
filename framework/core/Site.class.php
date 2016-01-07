@@ -77,6 +77,14 @@ class Site {
 	protected function parseURL() {
 		$request = explode("?", preg_replace('/^\//', '', self::$request));
 		self::$sections = array_filter(explode("/", array_shift($request)));
+
+		if(defined('BASE_URL') && BASE_URL !== "" && BASE_URL !== "/") { 
+            		$_baseURL = array_filter(explode('/', BASE_URL)); 
+            		foreach ($_baseURL as $index => $element) { 
+                	if(self::$sections[$index-1] === $element) 
+             		       	unset(self::$sections[$index-1]); 
+            		} 
+        	} 
 	}
 
 	/**

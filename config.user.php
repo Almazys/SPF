@@ -58,7 +58,7 @@ $config['security']['displayExplicitErrors'] = true; // If false, display generi
  * Paths definitions
  */
 define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . '/');
-
+define("BASE_URL", '/'); 
 
 /**
  * default HTML template
