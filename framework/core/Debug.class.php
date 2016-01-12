@@ -20,7 +20,7 @@ class Debug {
 		}
 
 		if(self::$enabled===true)
-			self::write("Debug mode enabled. Use in development env. only!", 0);
+			self::write(date('Ymd-Gis - ') . "Debug mode enabled. Use in development env. only!", 0);
 
 	}
 

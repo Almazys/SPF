@@ -67,7 +67,7 @@ class Site {
 		 */
 		self::$request = preg_replace($GLOBALS['config']['security']['allowed_characters']['request_uri'],"",urldecode($_SERVER['REQUEST_URI']));
 		unset($_SERVER['REQUEST_URI']);
-		Debug::write("Request_URI requested (after sanitizing) : '" . self::$request . "'  from IP : '" . $_SERVER["HTTP_HOST"] . "'",0);
+		Debug::write("Request_URI requested (after sanitizing) : '" . self::$request . "'  from IP : '" . $_SERVER["REMOTE_ADDR"] . "'",0);
 	}
 
 	/**
@@ -118,7 +118,7 @@ class Site {
 		if(!empty($file_Extention[0]) && !in_array(str_replace(".", "", $file_Extention[0][0]), array('php', 'html', 'phtml', '.locale', '.template'))) {
 
 			//Logging request
-			self::log(date("Y/m/d-H:i:s") . " - Ressrce request from " . $_SERVER['HTTP_HOST'] . " - " . Site::getRequest());
+			self::log(date("Y/m/d-H:i:s") . " - Ressrce request from " . $_SERVER['REMOTE_ADDR'] . " - " . Site::getRequest());
 
 			$sections = self::$sections;
 
@@ -163,7 +163,7 @@ class Site {
 			$this->findController();
 			
 			//Logging request
-			self::log(date("Y/m/d-H:i:s") . " - Primary request from " . $_SERVER['HTTP_HOST'] . " - " . Site::getRequest());
+			self::log(date("Y/m/d-H:i:s") . " - Primary request from " . $_SERVER['REMOTE_ADDR'] . " - " . Site::getRequest());
 
 			if(file_exists(self::$path_to_controller . self::$controller_file_to_load)) {
 				
