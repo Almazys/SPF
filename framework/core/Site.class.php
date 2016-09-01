@@ -202,7 +202,8 @@ class Site {
 					exit;
 				}
 
-				$controller->displayView();
+				if(method_exists($controller, 'displayView'))
+					$controller->displayView();
 
 			} else {
 				$this->error(Site::app_error, "501", $GLOBALS['config']['errors']['framework']['501'] . " " . self::$controller_name_to_load);

@@ -30,7 +30,7 @@ if(!defined('ROOT_DIR')) define("ROOT_DIR", $_SERVER['DOCUMENT_ROOT'] . '/');
 /**
  * Version numbers
  */
-$config['framework']['version'] = 0.37;
+$config['framework']['version'] = 0.38;
 $config['framework']['branch'] = "beta";
 $config['framework']['PHP_version_required'] = "5.3";
 
