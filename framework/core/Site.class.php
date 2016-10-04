@@ -45,12 +45,12 @@ class Site {
 		 */
 		foreach($_POST as &$post) {
 			$key = preg_replace($GLOBALS['config']['security']['allowed_characters']['inputs'],"",array_search($post, $_POST));
-			self::$post[$key] = preg_replace($GLOBALS['config']['security']['allowed_characters']['inputs'],"",urldecode($post));
+			self::$post[$key] = htmlspecialchars(preg_replace($GLOBALS['config']['security']['allowed_characters']['inputs'],"",urldecode($post)), ENT_QUOTES, "utf-8", false);
 			unset($_POST[array_search($post, $_POST)]);
 		}
 		foreach($_GET as &$get) {
 			$key = preg_replace($GLOBALS['config']['security']['allowed_characters']['inputs'],"",array_search($get, $_GET));
-			self::$get[$key] = preg_replace($GLOBALS['config']['security']['allowed_characters']['inputs'],"",urldecode($get));
+			self::$get[$key] = htmlspecialchars(preg_replace($GLOBALS['config']['security']['allowed_characters']['inputs'],"",urldecode($get)), ENT_QUOTES, "utf-8", false); 
 			unset($_GET[array_search($get, $_GET)]);
 		}
 
@@ -81,8 +81,8 @@ class Site {
 		if(defined('BASE_URL') && BASE_URL !== "" && BASE_URL !== "/") { 
             		$_baseURL = array_filter(explode('/', BASE_URL)); 
             		foreach ($_baseURL as $index => $element) { 
-                	if(self::$sections[$index-1] === $element) 
-             		       	unset(self::$sections[$index-1]); 
+                		if(self::$sections[$index-1] === $element) 
+             		       		unset(self::$sections[$index-1]); 
             		} 
         	} 
 	}
