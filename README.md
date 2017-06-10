@@ -15,9 +15,10 @@ The aim of SPF is to let developers create their websites in a very fast and eff
 I) How does all this work ?
 ***************************
 
-With the provided .htaccess (your presentation server needs to take it into account), every request will be caught by index.php, at the DOCUMENT_ROOT of the web server.
+Apache: With the provided .htaccess, every request will be caught by index.php, at the DOCUMENT_ROOT of the web server.
 The framework will sanitize inputs (get, post, session, cookies), parse the request, and load your specific controller corresponding to the requested URL.
 
+Nginx: you need to modify your server block configuration, to include 'rewrite /.* /index.php last;'
 
 ***************************
 II) Setup
